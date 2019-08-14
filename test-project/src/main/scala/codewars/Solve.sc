@@ -2,6 +2,7 @@
 object Solve {
   // https://www.codewars.com/kata/which-x-for-that-sum/train/scala
 
+  // interpolation solution (not efficient)
   def solve(m: Double): Double = {
     val error = 1e-12
     def sequence(n: Long)(x: Double): Double = {
@@ -11,14 +12,6 @@ object Solve {
       }
       seq(n, x, 0)
     }
-
-
-
-
-
-
-
-
 
     def interpolate(expected: Double, error: Double, f: Double => Double, limits: (Double, Double)): Double = {
       val intervalue = (limits._1 + limits._2) / 2
@@ -33,7 +26,10 @@ object Solve {
   }
 
   def li_1(z: Double): Double = z / math.pow(1 - z, 2)
+
+  // math series solution (exact and efficient)
   def inv_li_1(y: Double): Double = (2*y - math.sqrt(4*y + 1) + 1) / (2*y)
+
   val s1 = solve(2.00)
   val s2 = solve(4.00)
   val s3 = solve(5.00)

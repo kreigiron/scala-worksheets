@@ -11,4 +11,12 @@ object LoveVsFriendship {
 
   val mean = a(a.size / 2)
 
+  def factorial(n: Int) : Long = {
+    if (n == 0) 1
+    else if (n == 1) 1
+    else n * factorial(n - 1)
+  }
+
+  factorial(5)
+
 }
